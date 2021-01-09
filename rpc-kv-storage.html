@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176574648-1"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-176574648-1');
+    </script>
+    
+    <link rel='stylesheet' href='/static/css/pygment_trac.css'/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    <title>ActiveJ RPC | Create a key-value storage with high performance RPC communication protocol</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=" Create a key-value storage with high performance RPC communication protocol ">
+    <meta name="keywords" content=" java,java framework,tutorial,guide,rpc,client-server,web application,key-value storage ">
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+    <meta name="og:description" content="ActiveJ is an alternative Java platform built from the ground up as a replacement of Spring, Spark, Quarkus, Micronauts, and other solutions. It is minimalistic, boilerplate-free, and provides outstanding performance." />
+    <meta name="og:image" content="https://activej.io/static/images/AJ_Card.jpeg" />
+    <meta name="og:title" content="ActiveJ - An Alternative Java platform built for web, high load, and cloud development" />
+</head>
+<body>
+    <div class="navbar-container-wrapper">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light p-0">
+            <ul class="navbar-nav-visible mr-auto mt-1 mt-lg-0">
+                <div class="logo-link-title mr-5">
+                    <img src="/favicon.png" style="max-width: 25px">
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <a class="navbar-nav__link logo-link-title" href="/" style="margin-left: 5px">ActiveJ RPC</a>
+                    
+                    
+                    
+                    
+                    
+                    
+                </div>
+            </ul>
+            <button class="navbar-toggler m-1 ml-auto" type="button" data-toggle="collapse" data-target="#navbarToggler"
+                    aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggler">
+                <div class="container">
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <ul class="navbar-nav navbar-nav-visible mr-auto mt-1 mt-lg-0">
+                        
+                        <li>
+                            <a class="navbar-nav__link nav-expanded" href="/examples.html">
+                                Examples
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    
+                    
+                    
+                    
+                    
+                    
+                </div>
+                <span>
+              <ul class="navbar-nav expanded-links navbar-nav-visible mr-auto mt-1 mt-lg-0">
+                  <li class="dropdown">
+                    <a class="nav-link nav-expanded">Components</a>
+                    <ul class="dropdown__content">
+                        
+                            <div class="dropdown__content-wrapper">
+                                
+                                    <a href="https://activej.io" class="dropdown__content__item ">
+                                        <li>
+                                            <div href="https://activej.io">ActiveJ</div>
+                                        </li>
+                                        <p class="dropdown__content__item__text"> Redefining Java for modern web applications </p>
+                                    </a>
+                                
+                                    <a href="https://inject.activej.io" class="dropdown__content__item ">
+                                        <li>
+                                            <div href="https://inject.activej.io">ActiveJ Inject</div>
+                                        </li>
+                                        <p class="dropdown__content__item__text"> Lightning-fast and ultimately powerful DI library </p>
+                                    </a>
+                                
+                                    <a href="https://serializer.activej.io" class="dropdown__content__item ">
+                                        <li>
+                                            <div href="https://serializer.activej.io">ActiveJ Serializer</div>
+                                        </li>
+                                        <p class="dropdown__content__item__text"> The fastest JVM serializer in the world </p>
+                                    </a>
+                                
+                                    <a href="https://codegen.activej.io" class="dropdown__content__item ">
+                                        <li>
+                                            <div href="https://codegen.activej.io">ActiveJ Codegen</div>
+                                        </li>
+                                        <p class="dropdown__content__item__text"> Dynamic bytecode generation without overhead of reflection </p>
+                                    </a>
+                                
+                                    <a href="https://specializer.activej.io" class="dropdown__content__item ">
+                                        <li>
+                                            <div href="https://specializer.activej.io">ActiveJ Specializer</div>
+                                        </li>
+                                        <p class="dropdown__content__item__text"> A little bit of magic to speed up your code </p>
+                                    </a>
+                                
+                                    <a href="https://rpc.activej.io" class="dropdown__content__item  selected-link ">
+                                        <li>
+                                            <div href="https://rpc.activej.io">ActiveJ RPC</div>
+                                        </li>
+                                        <p class="dropdown__content__item__text"> Lightning-fast binary protocol for microservices architecture </p>
+                                    </a>
+                                
+                                    <a href="https://fs.activej.io" class="dropdown__content__item ">
+                                        <li>
+                                            <div href="https://fs.activej.io">ActiveJ FS</div>
+                                        </li>
+                                        <p class="dropdown__content__item__text"> Tiny abstraction for managing local, remote, and distributed FS </p>
+                                    </a>
+                                
+                           </div>
+                        
+                    </ul>
+                </li>
+                  <li><a class="navbar-nav__link" href="https://activej.io/blog/release-notes.html">Blog</a> </li>
+                <li><a class="navbar-nav__link" href="http://uikernel.io">UIKernel</a></li>
+                <li><a class="navbar-nav__link" href="https://adkernel.com">AdKernel</a></li>
+                <li><a class="navbar-nav__link" href="https://github.com/activej/activej">GitHub</a></li>
+                <li><a class="navbar-nav__link" href="/about.html">About us</a></li>
+              </ul>
+            </span>
+            </div>
+        </nav>
+    </div>
+</div>
+
+    <div class="content">
+        
+            <div class="container">
+                <div class="row">
+                    <div class="px-0 mb-3 sidebar">
+    
+<h3>Examples</h3>
+<ul>
+    
+    
+    <li>
+        <a href="/examples.html">Basic examples</a>
+    </li>
+    
+    
+    
+    <li class="sidebar-item-selected-wrapper">
+        <div class="sidebar-item-selected">
+            <a href="/rpc-kv-storage.html">RPC key-value storage</a>
+        </div>
+    </li>
+    
+    
+    
+    <li>
+        <a href="/memcached-like-application.html">Memcached-like application</a>
+    </li>
+    
+    
+</ul>
+
+
+</div>
+<div class="pr-3 markdown-content docs-content">
+    <div class="status-wrapper">
+        <h1>ActiveJ RPC | Key-Value Storage </h1>
+    </div>
+    <h2 id="introduction">Introduction</h2>
+<p>In this guide we will create a remote key-value storage which will have 2 basic operations: <code class="language-plaintext highlighter-rouge">put</code> and <code class="language-plaintext highlighter-rouge">get</code>. When 
+writing distributed application the common concern is what protocol to use for communication. There are two main 
+options:</p>
+
+<ul>
+  <li>HTTP/REST</li>
+  <li>RPC</li>
+</ul>
+
+<p>While HTTP is more popular and well-specified, it has some overhead. When performance is a significant aspect of application, 
+you should use something faster. For this purpose ActiveJ RPC was designed based on 
+fast serializers and custom optimized communication protocol that allows to significantly improve application performance.</p>
+
+<h2 id="what-you-will-need">What you will need:</h2>
+
+<ul>
+  <li>IDE or terminal</li>
+  <li>JDK 1.8+</li>
+  <li>Maven 3.0+</li>
+</ul>
+
+<h2 id="to-proceed-with-this-guide-you-have-2-options">To proceed with this guide you have 2 options:</h2>
+
+<ul>
+  <li>Download and run <a href="#working-example">working example</a></li>
+  <li>Follow <a href="#step-by-step-guide">step-by-step guide</a></li>
+</ul>
+
+<h2 id="working-example">Working Example</h2>
+
+<p>To run the example in IDE, <a href="https://github.com/activej/activej.git">clone ActiveJ project</a> locally first:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git clone https://github.com/activej/activej.git</code></pre></figure>
+
+<p>And import it as a Maven project. Check out branch <strong>v4.3</strong>.</p>
+
+<p>Before running the example, build the project (<strong>Ctrl + F9</strong> for IntelliJ IDEA).</p>
+
+<p>Then, go to <a href="#testing">testing</a> section.</p>
+
+<h2 id="step-by-step-guide">Step-by-step guide</h2>
+<h3 id="1-set-up-the-project">1. Set up the project</h3>
+<p>First, create a folder for application and build an appropriate project structure:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">remote-key-value-storage
+└── pom.xml
+└── src
+    └── main
+        └── java
+            └── GetRequest.java
+            └── GetResponse.java
+            └── PutRequest.java
+            └── PutResponse.java
+            └── KeyValueStore.java
+            └── ServerModule.java
+            └── ServerLauncher.java
+            └── ClientModule.java
+            └── ClientLauncher.java</code></pre></figure>
+
+<p>Next, configure your <a href="https://github.com/activej/activej/blob/v4.3/examples/tutorials/rpc-kv-storage/pom.xml"><strong>pom.xml</strong></a> file like this:</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml">    
+<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+
+  <span class="nt">&lt;groupId&gt;</span>io.activej<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>tutorial-rpc-kv-storage<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>4.3<span class="nt">&lt;/version&gt;</span>
+
+  <span class="nt">&lt;name&gt;</span>Tutorials : Rpc-KV-Storage<span class="nt">&lt;/name&gt;</span>
+
+  <span class="nt">&lt;properties&gt;</span>
+    <span class="nt">&lt;maven.compiler.source&gt;</span>1.8<span class="nt">&lt;/maven.compiler.source&gt;</span>
+    <span class="nt">&lt;maven.compiler.target&gt;</span>1.8<span class="nt">&lt;/maven.compiler.target&gt;</span>
+  <span class="nt">&lt;/properties&gt;</span>
+
+  <span class="nt">&lt;dependencies&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>io.activej<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>activej-boot<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>4.2<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>io.activej<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>activej-rpc<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>4.2<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>ch.qos.logback<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>logback-classic<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>1.2.3<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+  <span class="nt">&lt;/dependencies&gt;</span>
+
+  <span class="nt">&lt;build&gt;</span>
+    <span class="nt">&lt;plugins&gt;</span>
+      <span class="nt">&lt;plugin&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>org.codehaus.mojo<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>exec-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;executions&gt;</span>
+          <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;id&gt;</span>ClientLauncher<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+              <span class="nt">&lt;goal&gt;</span>java<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+            <span class="nt">&lt;configuration&gt;</span>
+              <span class="nt">&lt;mainClass&gt;</span>ClientLauncher<span class="nt">&lt;/mainClass&gt;</span>
+            <span class="nt">&lt;/configuration&gt;</span>
+          <span class="nt">&lt;/execution&gt;</span>
+          <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;id&gt;</span>ServerLauncher<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+              <span class="nt">&lt;goal&gt;</span>java<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+            <span class="nt">&lt;configuration&gt;</span>
+              <span class="nt">&lt;mainClass&gt;</span>ServerLauncher<span class="nt">&lt;/mainClass&gt;</span>
+            <span class="nt">&lt;/configuration&gt;</span>
+          <span class="nt">&lt;/execution&gt;</span>
+        <span class="nt">&lt;/executions&gt;</span>
+      <span class="nt">&lt;/plugin&gt;</span>
+    <span class="nt">&lt;/plugins&gt;</span>
+  <span class="nt">&lt;/build&gt;</span>
+<span class="nt">&lt;/project&gt;</span></code></pre></figure>
+
+<h3 id="2-define-basic-app-functionality">2. Define basic app functionality</h3>
+<p>Since we have two basic operations to implement (<code class="language-plaintext highlighter-rouge">put</code> and <code class="language-plaintext highlighter-rouge">get</code>), let’s start with writing down classes that will be used for 
+communication between client and server, specifically <a href="https://github.com/activej/activej/blob/v4.3/examples/tutorials/rpc-kv-storage/src/main/java/PutRequest.java"><strong>PutRequest</strong></a>, 
+<a href="https://github.com/activej/activej/blob/v4.3/examples/tutorials/rpc-kv-storage/src/main/java/PutResponse.java"><strong>PutResponse</strong></a>, 
+<a href="https://github.com/activej/activej/blob/v4.3/examples/tutorials/rpc-kv-storage/src/main/java/GetRequest.java"><strong>GetRequest</strong></a>, 
+and <a href="https://github.com/activej/activej/blob/v4.3/examples/tutorials/rpc-kv-storage/src/main/java/GetResponse.java"><strong>GetResponse</strong></a>. 
+Instances of these classes will be serialized by lightning-fast serializer library <a href="https://serializer.activej.io">ActiveJ Serializer</a>. 
+It requires some meta information about these classes, which is provided by appropriate annotations. The basic rules are:</p>
+
+<ul>
+  <li>Use <a href="https://github.com/activej/activej/blob/v4.3/core-serializer/src/main/java/io/activej/serializer/annotations/Serialize.java">@Serialize</a> annotation with an order number on the getter of property. Ordering provides better compatibility in case 
+classes are changed.</li>
+  <li>Use <a href="https://github.com/activej/activej/blob/v4.3/core-serializer/src/main/java/io/activej/serializer/annotations/Deserialize.java">@Deserialize</a> annotation with a property name (which should be the same as the one in the getter) in constructor.</li>
+  <li>Use <a href="https://github.com/activej/activej/blob/v4.3/core-serializer/src/main/java/io/activej/serializer/annotations/SerializeNullable.java">@SerializeNullable</a> on properties that can have null values.</li>
+</ul>
+
+<p>Therefore, classes for communication should look like following:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PutRequest</span> <span class="o">{</span>
+
+	<span class="kd">private</span> <span class="kd">final</span> <span class="nc">String</span> <span class="n">key</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kd">final</span> <span class="nc">String</span> <span class="n">value</span><span class="o">;</span>
+
+	<span class="kd">public</span> <span class="nf">PutRequest</span><span class="o">(</span><span class="nd">@Deserialize</span><span class="o">(</span><span class="s">"key"</span><span class="o">)</span> <span class="nc">String</span> <span class="n">key</span><span class="o">,</span> <span class="nd">@Deserialize</span><span class="o">(</span><span class="s">"value"</span><span class="o">)</span> <span class="nc">String</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">key</span> <span class="o">=</span> <span class="n">key</span><span class="o">;</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Serialize</span><span class="o">(</span><span class="n">order</span> <span class="o">=</span> <span class="mi">0</span><span class="o">)</span>
+	<span class="kd">public</span> <span class="nc">String</span> <span class="nf">getKey</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="n">key</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Serialize</span><span class="o">(</span><span class="n">order</span> <span class="o">=</span> <span class="mi">1</span><span class="o">)</span>
+	<span class="kd">public</span> <span class="nc">String</span> <span class="nf">getValue</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="n">value</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PutResponse</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">final</span> <span class="nc">String</span> <span class="n">previousValue</span><span class="o">;</span>
+
+	<span class="kd">public</span> <span class="nf">PutResponse</span><span class="o">(</span><span class="nd">@Deserialize</span><span class="o">(</span><span class="s">"previousValue"</span><span class="o">)</span> <span class="nc">String</span> <span class="n">previousValue</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">previousValue</span> <span class="o">=</span> <span class="n">previousValue</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Serialize</span><span class="o">(</span><span class="n">order</span> <span class="o">=</span> <span class="mi">0</span><span class="o">)</span>
+	<span class="nd">@SerializeNullable</span>
+	<span class="kd">public</span> <span class="nc">String</span> <span class="nf">getPreviousValue</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="n">previousValue</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="s">"{previousValue='"</span> <span class="o">+</span> <span class="n">previousValue</span> <span class="o">+</span> <span class="sc">'\''</span> <span class="o">+</span> <span class="sc">'}'</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">GetRequest</span> <span class="o">{</span>
+
+	<span class="kd">private</span> <span class="kd">final</span> <span class="nc">String</span> <span class="n">key</span><span class="o">;</span>
+
+	<span class="kd">public</span> <span class="nf">GetRequest</span><span class="o">(</span><span class="nd">@Deserialize</span><span class="o">(</span><span class="s">"key"</span><span class="o">)</span> <span class="nc">String</span> <span class="n">key</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">key</span> <span class="o">=</span> <span class="n">key</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Serialize</span><span class="o">(</span><span class="n">order</span> <span class="o">=</span> <span class="mi">0</span><span class="o">)</span>
+	<span class="kd">public</span> <span class="nc">String</span> <span class="nf">getKey</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="n">key</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">GetResponse</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">final</span> <span class="nc">String</span> <span class="n">value</span><span class="o">;</span>
+
+	<span class="kd">public</span> <span class="nf">GetResponse</span><span class="o">(</span><span class="nd">@Deserialize</span><span class="o">(</span><span class="s">"value"</span><span class="o">)</span> <span class="nc">String</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Serialize</span><span class="o">(</span><span class="n">order</span> <span class="o">=</span> <span class="mi">0</span><span class="o">)</span>
+	<span class="nd">@SerializeNullable</span>
+	<span class="kd">public</span> <span class="nc">String</span> <span class="nf">getValue</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="n">value</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="s">"{value='"</span> <span class="o">+</span> <span class="n">value</span> <span class="o">+</span> <span class="sc">'\''</span> <span class="o">+</span> <span class="sc">'}'</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>Next, let’s write a simple implementation of key-value storage <a href="https://github.com/activej/activej/blob/v4.3/examples/tutorials/rpc-kv-storage/src/main/java/KeyValueStore.java"><strong>KeyValueStore</strong></a>:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">KeyValueStore</span> <span class="o">{</span>
+
+	<span class="kd">private</span> <span class="kd">final</span> <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="n">store</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+
+	<span class="kd">public</span> <span class="nc">String</span> <span class="nf">put</span><span class="o">(</span><span class="nc">String</span> <span class="n">key</span><span class="o">,</span> <span class="nc">String</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="n">store</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="n">value</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="nc">String</span> <span class="nf">get</span><span class="o">(</span><span class="nc">String</span> <span class="n">key</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="n">store</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<h3 id="3-create-client-and-server">3. Create client and server</h3>
+
+<p>Now, let’s write down an <a href="https://github.com/activej/activej/blob/v4.3/core-inject/src/main/java/io/activej/inject/module/AbstractModule.java"><strong>AbstractModule</strong></a> 
+for the RPC server using <a href="https://inject.activej.io">ActiveJ Inject</a> dependency injection library to handle the <code class="language-plaintext highlighter-rouge">get</code> and <code class="language-plaintext highlighter-rouge">put</code> requests.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ServerModule</span> <span class="kd">extends</span> <span class="nc">AbstractModule</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">RPC_SERVER_PORT</span> <span class="o">=</span> <span class="mi">5353</span><span class="o">;</span>
+
+	<span class="nd">@Provides</span>
+	<span class="nc">Eventloop</span> <span class="nf">eventloop</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="nc">Eventloop</span><span class="o">.</span><span class="na">create</span><span class="o">()</span>
+				<span class="o">.</span><span class="na">withFatalErrorHandler</span><span class="o">(</span><span class="n">rethrowOnAnyError</span><span class="o">());</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Provides</span>
+	<span class="nc">KeyValueStore</span> <span class="nf">keyValueStore</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="k">new</span> <span class="nf">KeyValueStore</span><span class="o">();</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Provides</span>
+	<span class="nc">RpcServer</span> <span class="nf">rpcServer</span><span class="o">(</span><span class="nc">Eventloop</span> <span class="n">eventloop</span><span class="o">,</span> <span class="nc">KeyValueStore</span> <span class="n">store</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="nc">RpcServer</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">eventloop</span><span class="o">)</span>
+				<span class="o">.</span><span class="na">withSerializerBuilder</span><span class="o">(</span><span class="nc">SerializerBuilder</span><span class="o">.</span><span class="na">create</span><span class="o">())</span>
+				<span class="o">.</span><span class="na">withMessageTypes</span><span class="o">(</span><span class="nc">PutRequest</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">PutResponse</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">GetRequest</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">GetResponse</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+				<span class="o">.</span><span class="na">withHandler</span><span class="o">(</span><span class="nc">PutRequest</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">req</span> <span class="o">-&gt;</span> <span class="nc">Promise</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="k">new</span> <span class="nc">PutResponse</span><span class="o">(</span><span class="n">store</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">req</span><span class="o">.</span><span class="na">getKey</span><span class="o">(),</span> <span class="n">req</span><span class="o">.</span><span class="na">getValue</span><span class="o">()))))</span>
+				<span class="o">.</span><span class="na">withHandler</span><span class="o">(</span><span class="nc">GetRequest</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">req</span> <span class="o">-&gt;</span> <span class="nc">Promise</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="k">new</span> <span class="nc">GetResponse</span><span class="o">(</span><span class="n">store</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">req</span><span class="o">.</span><span class="na">getKey</span><span class="o">()))))</span>
+				<span class="o">.</span><span class="na">withListenPort</span><span class="o">(</span><span class="no">RPC_SERVER_PORT</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>As you can see, in order to properly create an <a href="https://github.com/activej/activej/blob/v4.3/cloud-rpc/src/main/java/io/activej/rpc/server/RpcServer.java"><strong>RpcServer</strong></a> 
+we should indicate all the classes that will be sent between client and server, and specify the appropriate 
+<a href="https://github.com/activej/activej/blob/v4.3/cloud-rpc/src/main/java/io/activej/rpc/server/RpcRequestHandler.java"><strong>RpcRequestHandler</strong></a> for each request class.</p>
+
+<p>We represent them as the third arguments in these lines using lambdas.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">.</span><span class="na">withHandler</span><span class="o">(</span><span class="nc">PutRequest</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">PutResponse</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">req</span> <span class="o">-&gt;</span> <span class="nc">Promise</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="k">new</span> <span class="nc">PutResponse</span><span class="o">(</span><span class="n">store</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">req</span><span class="o">.</span><span class="na">getKey</span><span class="o">(),</span> <span class="n">req</span><span class="o">.</span><span class="na">getValue</span><span class="o">()))))</span>
+<span class="o">.</span><span class="na">withHandler</span><span class="o">(</span><span class="nc">GetRequest</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">GetResponse</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">req</span> <span class="o">-&gt;</span> <span class="nc">Promise</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="k">new</span> <span class="nc">GetResponse</span><span class="o">(</span><span class="n">store</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">req</span><span class="o">.</span><span class="na">getKey</span><span class="o">()))))</span></code></pre></figure>
+
+<p>Next, create <a href="https://github.com/activej/activej/blob/v4.3/examples/tutorials/rpc-kv-storage/src/main/java/ServerLauncher.java"><strong>ServerLauncher</strong></a> 
+for the RPC server. Use <a href="https://activej.io/launcher.html">ActiveJ Launcher</a> to manage application lifecycle:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ServerLauncher</span> <span class="kd">extends</span> <span class="nc">Launcher</span> <span class="o">{</span>
+	<span class="nd">@Inject</span>
+	<span class="kd">private</span> <span class="nc">RpcServer</span> <span class="n">server</span><span class="o">;</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">protected</span> <span class="nc">Module</span> <span class="nf">getModule</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="nf">combine</span><span class="o">(</span>
+				<span class="nc">ServiceGraphModule</span><span class="o">.</span><span class="na">create</span><span class="o">(),</span>
+				<span class="k">new</span> <span class="nf">ServerModule</span><span class="o">());</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+		<span class="n">awaitShutdown</span><span class="o">();</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+		<span class="nc">ServerLauncher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ServerLauncher</span><span class="o">();</span>
+		<span class="n">launcher</span><span class="o">.</span><span class="na">launch</span><span class="o">(</span><span class="n">args</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>Since we extend <strong>Launcher</strong>, we will also override 2 methods: <em>getModule</em> to provide <a href="https://activej.io/service-graph.html"><strong>ServiceGraphModule</strong></a> 
+and <em>run</em> to describe the main logic of the example.</p>
+
+<p>Now, let’s write the RPC client. We should indicate all the classes that will be used 
+for communication and specify the <a href="examples.html#round-robin-strategy">RPC strategy</a>. All strategies can be 
+combined, but since we have only one server, we will use <a href="https://github.com/activej/activej/blob/v4.3/cloud-rpc/src/main/java/io/activej/rpc/client/sender/RpcStrategySingleServer.java"><em>single-server</em></a> strategy:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ClientModule</span> <span class="kd">extends</span> <span class="nc">AbstractModule</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">RPC_SERVER_PORT</span> <span class="o">=</span> <span class="mi">5353</span><span class="o">;</span>
+
+	<span class="nd">@Provides</span>
+	<span class="nc">Eventloop</span> <span class="nf">eventloop</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="nc">Eventloop</span><span class="o">.</span><span class="na">create</span><span class="o">()</span>
+				<span class="o">.</span><span class="na">withFatalErrorHandler</span><span class="o">(</span><span class="n">rethrowOnAnyError</span><span class="o">())</span>
+				<span class="o">.</span><span class="na">withCurrentThread</span><span class="o">();</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Provides</span>
+	<span class="nc">RpcClient</span> <span class="nf">rpcClient</span><span class="o">(</span><span class="nc">Eventloop</span> <span class="n">eventloop</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="nc">RpcClient</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">eventloop</span><span class="o">)</span>
+				<span class="o">.</span><span class="na">withConnectTimeout</span><span class="o">(</span><span class="nc">Duration</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="mi">1</span><span class="o">))</span>
+				<span class="o">.</span><span class="na">withSerializerBuilder</span><span class="o">(</span><span class="nc">SerializerBuilder</span><span class="o">.</span><span class="na">create</span><span class="o">())</span>
+				<span class="o">.</span><span class="na">withMessageTypes</span><span class="o">(</span><span class="nc">PutRequest</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">PutResponse</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">GetRequest</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">GetResponse</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+				<span class="o">.</span><span class="na">withStrategy</span><span class="o">(</span><span class="nc">RpcStrategies</span><span class="o">.</span><span class="na">server</span><span class="o">(</span><span class="k">new</span> <span class="nc">InetSocketAddress</span><span class="o">(</span><span class="s">"localhost"</span><span class="o">,</span> <span class="no">RPC_SERVER_PORT</span><span class="o">)));</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>Let’s also build <a href="https://github.com/activej/activej/blob/v4.3/examples/tutorials/rpc-kv-storage/src/main/java/ClientLauncher.java"><strong>ClientLauncher</strong></a>. 
+In <em>run()</em> we will consider command line arguments and make appropriate requests to <strong>RpcServer</strong>.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ClientLauncher</span> <span class="kd">extends</span> <span class="nc">Launcher</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">TIMEOUT</span> <span class="o">=</span> <span class="mi">1000</span><span class="o">;</span>
+
+	<span class="nd">@Inject</span>
+	<span class="kd">private</span> <span class="nc">RpcClient</span> <span class="n">client</span><span class="o">;</span>
+
+	<span class="nd">@Inject</span>
+	<span class="nc">Eventloop</span> <span class="n">eventloop</span><span class="o">;</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">protected</span> <span class="nc">Module</span> <span class="nf">getModule</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="nf">combine</span><span class="o">(</span>
+				<span class="nc">ServiceGraphModule</span><span class="o">.</span><span class="na">create</span><span class="o">(),</span>
+				<span class="k">new</span> <span class="nf">ClientModule</span><span class="o">());</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">args</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+			<span class="nc">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Command line args:\n\t--put key value\n\t--get key"</span><span class="o">);</span>
+			<span class="k">return</span><span class="o">;</span>
+		<span class="o">}</span>
+
+		<span class="k">switch</span> <span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">])</span> <span class="o">{</span>
+			<span class="k">case</span> <span class="s">"--put"</span><span class="o">:</span>
+				<span class="nc">CompletableFuture</span><span class="o">&lt;</span><span class="nc">PutResponse</span><span class="o">&gt;</span> <span class="n">future1</span> <span class="o">=</span> <span class="n">eventloop</span><span class="o">.</span><span class="na">submit</span><span class="o">(()</span> <span class="o">-&gt;</span>
+						<span class="n">client</span><span class="o">.</span><span class="na">sendRequest</span><span class="o">(</span><span class="k">new</span> <span class="nc">PutRequest</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">],</span> <span class="n">args</span><span class="o">[</span><span class="mi">2</span><span class="o">]),</span> <span class="no">TIMEOUT</span><span class="o">)</span>
+				<span class="o">);</span>
+				<span class="nc">PutResponse</span> <span class="n">putResponse</span> <span class="o">=</span> <span class="n">future1</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"PutResponse: "</span> <span class="o">+</span> <span class="n">putResponse</span><span class="o">);</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="k">case</span> <span class="s">"--get"</span><span class="o">:</span>
+				<span class="nc">CompletableFuture</span><span class="o">&lt;</span><span class="nc">GetResponse</span><span class="o">&gt;</span> <span class="n">future2</span> <span class="o">=</span> <span class="n">eventloop</span><span class="o">.</span><span class="na">submit</span><span class="o">(()</span> <span class="o">-&gt;</span>
+						<span class="n">client</span><span class="o">.</span><span class="na">sendRequest</span><span class="o">(</span><span class="k">new</span> <span class="nc">GetRequest</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]),</span> <span class="no">TIMEOUT</span><span class="o">)</span>
+				<span class="o">);</span>
+				<span class="nc">GetResponse</span> <span class="n">getResponse</span> <span class="o">=</span> <span class="n">future2</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+				<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"GetResponse: "</span> <span class="o">+</span> <span class="n">getResponse</span><span class="o">);</span>
+				<span class="k">break</span><span class="o">;</span>
+			<span class="k">default</span><span class="o">:</span>
+				<span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="s">"Unsupported option: "</span> <span class="o">+</span> <span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+		<span class="nc">ClientLauncher</span> <span class="n">launcher</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ClientLauncher</span><span class="o">();</span>
+		<span class="n">launcher</span><span class="o">.</span><span class="na">launch</span><span class="o">(</span><span class="n">args</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>Congratulations! We’ve finished writing the code for this app.</p>
+
+<h2 id="testing">Testing</h2>
+
+<p>First, launch server. Open <strong>ServerLauncher</strong> class and run its <em>main()</em> method.</p>
+
+<p>Then make a <code class="language-plaintext highlighter-rouge">PUT</code> request. Open <strong>ClientLauncher</strong> class which is located at <strong>activej -&gt; examples -&gt; tutorials -&gt; rpc-kv-storage</strong>
+and set up program arguments to <code class="language-plaintext highlighter-rouge">--put key1 value1</code>. For IntelliJ IDEA: <code class="language-plaintext highlighter-rouge">Run -&gt; Edit configurations -&gt; 
+|Run/Debug Configurations -&gt; |Program arguments -&gt; --put key1 value1||</code>. Then run launcher’s <em>main()</em> method.</p>
+
+<p>You will see the following output:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">PutResponse: <span class="o">{</span><span class="nv">previousValue</span><span class="o">=</span><span class="s1">'null'</span><span class="o">}</span></code></pre></figure>
+
+<p>Finally, make a <code class="language-plaintext highlighter-rouge">GET</code> request.</p>
+
+<p>Open <strong>ClientLauncher</strong> class again and set up program arguments to <code class="language-plaintext highlighter-rouge">--get key1</code>. For IntelliJ IDEA: <code class="language-plaintext highlighter-rouge">Run -&gt;
+Edit configurations -&gt; |Run/Debug Configurations -&gt; |Program arguments -&gt; --get key1||</code>. Then run <em>main()</em> method of the 
+client launcher.</p>
+
+<p>You will see the following output:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">GetResponse: <span class="o">{</span><span class="nv">value</span><span class="o">=</span><span class="s1">'value1'</span><span class="o">}</span></code></pre></figure>
+
+<p>Congratulations, you’ve just created a remote key-value storage with RPC communication protocol!</p>
+
+    <div class="row docs-prevnext">
+        
+            <div class="col-sm-6">
+                <a class="docs-prevnext__button pull-left" href="examples.html">Prev</a>
+            </div>
+        
+        
+            <div class="col-sm-6">
+                <a class="docs-prevnext__button pull-right" href="memcached-like-application.html">Next</a>
+            </div>
+        
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        
+        <div class="container justify-content-between footer">
+            <div class="col-md-4 col-lg-5"> &copy; 2021 ActiveJ LLC. All Rights Reserved</div>
+            <div class="col-md-4 col-lg-3">Contact us: contact@activej.io</div>
+            <div class="col-md-8 col-lg-4 footer__menu">
+                <a href="http://uikernel.io">UIKernel</a>
+                <a href="https://adkernel.com">AdKernel</a>
+                <a href="https://github.com/activej/activej">GitHub</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="../static/js/leon.js"></script>
+    <script src="../static/js/index.js"></script>
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous">
+    </script>
+</body>
+</html>

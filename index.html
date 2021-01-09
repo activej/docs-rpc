@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176574648-1"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-176574648-1');
+    </script>
+    
+    <link rel='stylesheet' href='/static/css/pygment_trac.css'/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    <title>ActiveJ RPC | Lightning-fast binary protocol for high-load architecture</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=" ActiveJ RPC is a lightning-fast binary protocol for high-load microservices architecture ">
+    <meta name="keywords" content=" java,java library,tutorial,guide,memcached,rpc,web application,high-load,microservices ">
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+    <meta name="og:description" content="ActiveJ is an alternative Java platform built from the ground up as a replacement of Spring, Spark, Quarkus, Micronauts, and other solutions. It is minimalistic, boilerplate-free, and provides outstanding performance." />
+    <meta name="og:image" content="https://activej.io/static/images/AJ_Card.jpeg" />
+    <meta name="og:title" content="ActiveJ - An Alternative Java platform built for web, high load, and cloud development" />
+</head>
+<body>
+    <div class="navbar-container-wrapper">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light p-0">
+            <ul class="navbar-nav-visible mr-auto mt-1 mt-lg-0">
+                <div class="logo-link-title mr-5">
+                    <img src="/favicon.png" style="max-width: 25px">
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <a class="navbar-nav__link logo-link-title" href="/" style="margin-left: 5px">ActiveJ RPC</a>
+                    
+                    
+                    
+                    
+                    
+                    
+                </div>
+            </ul>
+            <button class="navbar-toggler m-1 ml-auto" type="button" data-toggle="collapse" data-target="#navbarToggler"
+                    aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggler">
+                <div class="container">
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <ul class="navbar-nav navbar-nav-visible mr-auto mt-1 mt-lg-0">
+                        
+                        <li>
+                            <a class="navbar-nav__link nav-expanded" href="/examples.html">
+                                Examples
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    
+                    
+                    
+                    
+                    
+                    
+                </div>
+                <span>
+              <ul class="navbar-nav expanded-links navbar-nav-visible mr-auto mt-1 mt-lg-0">
+                  <li class="dropdown">
+                    <a class="nav-link nav-expanded">Components</a>
+                    <ul class="dropdown__content">
+                        
+                            <div class="dropdown__content-wrapper">
+                                
+                                    <a href="https://activej.io" class="dropdown__content__item ">
+                                        <li>
+                                            <div href="https://activej.io">ActiveJ</div>
+                                        </li>
+                                        <p class="dropdown__content__item__text"> Redefining Java for modern web applications </p>
+                                    </a>
+                                
+                                    <a href="https://inject.activej.io" class="dropdown__content__item ">
+                                        <li>
+                                            <div href="https://inject.activej.io">ActiveJ Inject</div>
+                                        </li>
+                                        <p class="dropdown__content__item__text"> Lightning-fast and ultimately powerful DI library </p>
+                                    </a>
+                                
+                                    <a href="https://serializer.activej.io" class="dropdown__content__item ">
+                                        <li>
+                                            <div href="https://serializer.activej.io">ActiveJ Serializer</div>
+                                        </li>
+                                        <p class="dropdown__content__item__text"> The fastest JVM serializer in the world </p>
+                                    </a>
+                                
+                                    <a href="https://codegen.activej.io" class="dropdown__content__item ">
+                                        <li>
+                                            <div href="https://codegen.activej.io">ActiveJ Codegen</div>
+                                        </li>
+                                        <p class="dropdown__content__item__text"> Dynamic bytecode generation without overhead of reflection </p>
+                                    </a>
+                                
+                                    <a href="https://specializer.activej.io" class="dropdown__content__item ">
+                                        <li>
+                                            <div href="https://specializer.activej.io">ActiveJ Specializer</div>
+                                        </li>
+                                        <p class="dropdown__content__item__text"> A little bit of magic to speed up your code </p>
+                                    </a>
+                                
+                                    <a href="https://rpc.activej.io" class="dropdown__content__item  selected-link ">
+                                        <li>
+                                            <div href="https://rpc.activej.io">ActiveJ RPC</div>
+                                        </li>
+                                        <p class="dropdown__content__item__text"> Lightning-fast binary protocol for microservices architecture </p>
+                                    </a>
+                                
+                                    <a href="https://fs.activej.io" class="dropdown__content__item ">
+                                        <li>
+                                            <div href="https://fs.activej.io">ActiveJ FS</div>
+                                        </li>
+                                        <p class="dropdown__content__item__text"> Tiny abstraction for managing local, remote, and distributed FS </p>
+                                    </a>
+                                
+                           </div>
+                        
+                    </ul>
+                </li>
+                  <li><a class="navbar-nav__link" href="https://activej.io/blog/release-notes.html">Blog</a> </li>
+                <li><a class="navbar-nav__link" href="http://uikernel.io">UIKernel</a></li>
+                <li><a class="navbar-nav__link" href="https://adkernel.com">AdKernel</a></li>
+                <li><a class="navbar-nav__link" href="https://github.com/activej/activej">GitHub</a></li>
+                <li><a class="navbar-nav__link" href="/about.html">About us</a></li>
+              </ul>
+            </span>
+            </div>
+        </nav>
+    </div>
+</div>
+
+    <div class="content">
+        
+            <div class="container-wrapper">
+    <div class="container">
+        <div class="slider">
+            <div class="slider__text">
+                <h1 id="animatedLogo" text="ActiveJ RPC" class="mb-4 mt-4 slider__text__logo" align="center"></h1>
+                A lightning-fast binary protocol for distributed applications and microservices
+            </div>
+        </div>
+
+        <div class="container-radius pb-4">
+            <div class="row mx-0 slider-buttons">
+                <a href="examples.html" class="col-5 slider-buttons__get-started-button">
+                    GET STARTED
+                </a>
+                <a href="https://github.com/activej/activej/tree/v4.3/cloud-rpc" target="_blank" class="col-4 slider-buttons__github-button">
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="paper__wrapper">
+    <div class="container features">
+        <h3 class="ml-3 mt-4">What is ActiveJ RPC?</h3>
+        <div class="ml-3">ActiveJ RPC is a lightweight and convenient Java library for developing <b>high-load distributed
+            applications</b> and
+            Memcached-like solutions. It introduces a completely <b>alternative approach to microservices
+                implementation</b>
+            and <b>overcomes the overheads</b> of utilizing HTTP protocol with JSON or XML encoding.
+            ActiveJ RPC is powered by world's fastest JVM serializer <a href="https://serializer.activej.io">ActiveJ Serializer</a>,
+            runs on TCP, supports pipelined requests and has a custom
+            <b>high-performance binary streaming protocol</b>. Along with that, ActiveJ RPC utilizes <a
+                    href="https://activej.io/datastream.html">Datastream</a> module for asynchronous data processing
+            and back pressure control. It also features built-in commonly used RPC <b>strategies and high fault
+                tolerance</b>.
+        </div>
+        <h3 class="ml-3 mt-4">Why ActiveJ RPC?</h3>
+        <ul>
+            <li>Outstanding performance of up to ~15M requests per second on a single CPU core</li>
+            <li>Simple API for defining client and server message handlers</li>
+            <li>Wide range of RPC strategies (first available, round-robin, rendezvous hashing, etc.) that can be simply
+                combined
+            </li>
+            <li>Custom high-performance streaming protocol</li>
+            <li>Utilizes ActiveJ's <b>Datastream</b>, <b>Net</b> and <b>Serializer</b> modules to achieve top performance</li>
+            <li>Fault tolerance with re-connections to fallback and replica servers</li>
+            <li>Native support for message pipelining</li>
+            <li>Ideal for near-real time servers with application-specific business logic</li>
+            <li>Tested in a high-load production environment</li>
+        </ul>
+        <div class="row my-4 mx-auto justify-content-between samples">
+            <div class="samples__text-wrapper col-lg-5 col-md-12 pr-5">
+                <h3>Asynchronous binary RPC protocol with extensive cloud strategies</h3>
+                <div class="features__text mb-2">ActiveJ RPC features highly optimized flexible server and client
+                    implementation
+                    along with predefined cloud strategies. With these technologies you can conveniently create
+                    even <b>complex scalable solutions</b> like <b>high-performance microservices or Memcached-like</b>
+                    servers.
+                </div>
+
+            </div>
+            <div class="col-lg-7 col-md-12">
+
+                <figure class="highlight m-0"><pre><code class="language-java" data-lang="java"><span class="n">RpcServer</span> <span
+                        class="nf">rpcServer</span><span class="o">(</span><span class="n">Eventloop</span> <span
+                        class="n">eventloop</span><span class="o">)</span> <span class="o">{</span>
+	<span class="k">return</span> <span class="n">RpcServer</span><span class="o">.</span><span class="na">create</span><span
+                            class="o">(</span><span class="n">eventloop</span><span class="o">)</span>
+		<span class="o">.</span><span class="na">withMessageTypes</span><span class="o">(</span><span
+                            class="n">String</span><span class="o">.</span><span class="na">class</span><span
+                            class="o">)</span>
+		<span class="o">.</span><span class="na">withHandler</span><span class="o">(</span><span class="n">String</span><span
+                            class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">String</span><span
+                            class="o">.</span><span class="na">class</span><span class="o">,</span>
+				<span class="n">request</span> <span class="o">-&gt;</span> <span class="n">Promise</span><span
+                            class="o">.</span><span class="na">of</span><span class="o">(</span><span
+                            class="s">"Hello "</span> <span
+                            class="o">+</span> <span class="n">request</span><span class="o">))</span>
+		<span class="o">.</span><span class="na">withListenPort</span><span class="o">(</span><span class="n">SERVICE_PORT</span><span
+                            class="o">);</span>
+<span class="o">}</span></code>
+
+<code class="language-java" data-lang="java"><span class="n">RpcClient</span> <span class="nf">rpcClient</span><span
+        class="o">(</span><span class="n">Eventloop</span> <span class="n">eventloop</span><span
+        class="o">)</span> <span class="o">{</span>
+	<span class="k">return</span> <span class="n">RpcClient</span><span class="o">.</span><span class="na">create</span><span
+            class="o">(</span><span class="n">eventloop</span><span class="o">)</span>
+		<span class="o">.</span><span class="na">withMessageTypes</span><span class="o">(</span><span
+            class="n">String</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+		<span class="o">.</span><span class="na">withStrategy</span><span class="o">(</span><span
+            class="n">server</span><span class="o">(</span><span class="k">new</span> <span
+            class="n">InetSocketAddress</span><span class="o">(</span><span class="n">SERVICE_PORT</span><span
+            class="o">)));</span>
+<span class="o">}</span></code></pre>
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="container features transparent">
+        <h3 class="mt-3">Benchmarks</h3>
+        <p class="features__text">We’ve measured ActiveJ RPC performance in a basic scenario (client sends an
+            Integer, server returns a Promise of the Integer multiplied by two). We've also measured performance
+            for a Memcached-like scenario.</p>
+        <div class="col-lg-7 col-md-12 mb-4 mt-4 slider-img">
+            <div class="chart__wrapper">
+                <div class="chart">
+                    <a target="_blank" href="https://github.com/activej/activej/tree/v4.3/benchmarks/rpc" class="chart__group chart__separate">
+                        <div class="chart__group__title">RPC</div>
+                        <div class="chart__tooltip">
+                            ActiveJ RPC - 14.9 Mrps
+                        </div>
+                        <div class="chart__series">
+                            <div class="chart__text">
+                                RPC
+                            </div>
+                            <div class="chart__bar chart__bar_primary" data="14.892"></div>
+                            <div class="chart__measure-text">14.9 Mrps</div>
+                        </div>
+                    </a>
+                    <a target="_blank" href="https://github.com/activej/activej/blob/v4.3/benchmarks/rpc/src/main/java/io/activej/rpc/memcache/MemcacheRpcBenchmark.java" class="chart__group chart__separate">
+                        <div class="chart__group__title">Memcached</div>
+                        <div class="chart__tooltip">
+                            PUT - 9.5 Mrps <br/>
+                            GET - 9.7 Mrps
+                        </div>
+                        <div class="chart__series">
+                            <div class="chart__text">
+                                PUT
+                            </div>
+                            <div class="chart__bar chart__bar_primary" data="9.479"></div>
+                            <div class="chart__measure-text">9.5 Mrps</div>
+                        </div>
+                        <div class="chart__series">
+                            <div class="chart__text">
+                                GET
+                            </div>
+                            <div class="chart__bar chart__bar_primary" data="9.714"></div>
+                            <div class="chart__measure-text">9.7 Mrps</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <p class="features__text">Benchmarks were launched on a machine with the following parameters: Ubuntu
+            18.04 bionic, Kernel: x86_64 Linux 4.15.0-55-generic, CPU: Intel Core i5-8400 @ 6x 4GHz [27.8°C].
+            You can find benchmark sources on
+            <a href="https://github.com/activej/activej/tree/v4.3/examples/cloud/rpc/src/main/java">GitHub</a>.
+        </p>
+    </div>
+</div>
+<div class="paper__wrapper">
+    <div class="container features">
+        <h3 class="mx-3">Add ActiveJ RPC to your project</h3>
+        <div class="samples__text-wrapper">
+            <div class="features__text mx-3"> You can add ActiveJ RPC to your project by importing its Maven repository.<br>
+                These docs cover the most recent ActiveJ RPC release
+                <b>v4.3</b>
+                <small>(see on <a href="https://github.com/activej/activej/tree/v4.3/cloud-rpc">Github</a> or
+                    <a href="https://mvnrepository.com/artifact/io.activej/activej-rpc">Maven</a> )</small>.<br>
+            </div>
+        </div>
+
+        <h3 class="mt-3 mx-3">Project background</h3>
+        <p class="features__text mx-3">ActiveJ RPC is one of the ActiveJ technologies that also include cloud
+            solutions, lightning-fast serializers, bytecode generators and other technologies. To learn more, visit website of
+            the <a href="https://activej.io">ActiveJ platform</a>.</p>
+    </div>
+</div>
+
+        
+        <div class="container justify-content-between footer">
+            <div class="col-md-4 col-lg-5"> &copy; 2021 ActiveJ LLC. All Rights Reserved</div>
+            <div class="col-md-4 col-lg-3">Contact us: contact@activej.io</div>
+            <div class="col-md-8 col-lg-4 footer__menu">
+                <a href="http://uikernel.io">UIKernel</a>
+                <a href="https://adkernel.com">AdKernel</a>
+                <a href="https://github.com/activej/activej">GitHub</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="../static/js/leon.js"></script>
+    <script src="../static/js/index.js"></script>
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous">
+    </script>
+</body>
+</html>

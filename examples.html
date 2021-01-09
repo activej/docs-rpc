@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176574648-1"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-176574648-1');
+    </script>
+    
+    <link rel='stylesheet' href='/static/css/pygment_trac.css'/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    <title>ActiveJ RPC | Lightning-fast binary protocol for high-load architecture</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=" Lightning-fast binary protocol for microservices architecture ">
+    <meta name="keywords" content=" java,java framework,tutorial,guide,memcached,rpc,client-server,web application,microservices ">
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+    <meta name="og:description" content="ActiveJ is an alternative Java platform built from the ground up as a replacement of Spring, Spark, Quarkus, Micronauts, and other solutions. It is minimalistic, boilerplate-free, and provides outstanding performance." />
+    <meta name="og:image" content="https://activej.io/static/images/AJ_Card.jpeg" />
+    <meta name="og:title" content="ActiveJ - An Alternative Java platform built for web, high load, and cloud development" />
+</head>
+<body>
+    <div class="navbar-container-wrapper">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light p-0">
+            <ul class="navbar-nav-visible mr-auto mt-1 mt-lg-0">
+                <div class="logo-link-title mr-5">
+                    <img src="/favicon.png" style="max-width: 25px">
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <a class="navbar-nav__link logo-link-title" href="/" style="margin-left: 5px">ActiveJ RPC</a>
+                    
+                    
+                    
+                    
+                    
+                    
+                </div>
+            </ul>
+            <button class="navbar-toggler m-1 ml-auto" type="button" data-toggle="collapse" data-target="#navbarToggler"
+                    aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggler">
+                <div class="container">
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <ul class="navbar-nav navbar-nav-visible mr-auto mt-1 mt-lg-0">
+                        
+                        <li>
+                            <a class="navbar-nav__link nav-expanded" href="/examples.html">
+                                Examples
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    
+                    
+                    
+                    
+                    
+                    
+                </div>
+                <span>
+              <ul class="navbar-nav expanded-links navbar-nav-visible mr-auto mt-1 mt-lg-0">
+                  <li class="dropdown">
+                    <a class="nav-link nav-expanded">Components</a>
+                    <ul class="dropdown__content">
+                        
+                            <div class="dropdown__content-wrapper">
+                                
+                                    <a href="https://activej.io" class="dropdown__content__item ">
+                                        <li>
+                                            <div href="https://activej.io">ActiveJ</div>
+                                        </li>
+                                        <p class="dropdown__content__item__text"> Redefining Java for modern web applications </p>
+                                    </a>
+                                
+                                    <a href="https://inject.activej.io" class="dropdown__content__item ">
+                                        <li>
+                                            <div href="https://inject.activej.io">ActiveJ Inject</div>
+                                        </li>
+                                        <p class="dropdown__content__item__text"> Lightning-fast and ultimately powerful DI library </p>
+                                    </a>
+                                
+                                    <a href="https://serializer.activej.io" class="dropdown__content__item ">
+                                        <li>
+                                            <div href="https://serializer.activej.io">ActiveJ Serializer</div>
+                                        </li>
+                                        <p class="dropdown__content__item__text"> The fastest JVM serializer in the world </p>
+                                    </a>
+                                
+                                    <a href="https://codegen.activej.io" class="dropdown__content__item ">
+                                        <li>
+                                            <div href="https://codegen.activej.io">ActiveJ Codegen</div>
+                                        </li>
+                                        <p class="dropdown__content__item__text"> Dynamic bytecode generation without overhead of reflection </p>
+                                    </a>
+                                
+                                    <a href="https://specializer.activej.io" class="dropdown__content__item ">
+                                        <li>
+                                            <div href="https://specializer.activej.io">ActiveJ Specializer</div>
+                                        </li>
+                                        <p class="dropdown__content__item__text"> A little bit of magic to speed up your code </p>
+                                    </a>
+                                
+                                    <a href="https://rpc.activej.io" class="dropdown__content__item  selected-link ">
+                                        <li>
+                                            <div href="https://rpc.activej.io">ActiveJ RPC</div>
+                                        </li>
+                                        <p class="dropdown__content__item__text"> Lightning-fast binary protocol for microservices architecture </p>
+                                    </a>
+                                
+                                    <a href="https://fs.activej.io" class="dropdown__content__item ">
+                                        <li>
+                                            <div href="https://fs.activej.io">ActiveJ FS</div>
+                                        </li>
+                                        <p class="dropdown__content__item__text"> Tiny abstraction for managing local, remote, and distributed FS </p>
+                                    </a>
+                                
+                           </div>
+                        
+                    </ul>
+                </li>
+                  <li><a class="navbar-nav__link" href="https://activej.io/blog/release-notes.html">Blog</a> </li>
+                <li><a class="navbar-nav__link" href="http://uikernel.io">UIKernel</a></li>
+                <li><a class="navbar-nav__link" href="https://adkernel.com">AdKernel</a></li>
+                <li><a class="navbar-nav__link" href="https://github.com/activej/activej">GitHub</a></li>
+                <li><a class="navbar-nav__link" href="/about.html">About us</a></li>
+              </ul>
+            </span>
+            </div>
+        </nav>
+    </div>
+</div>
+
+    <div class="content">
+        
+            <div class="container">
+                <div class="row">
+                    <div class="px-0 mb-3 sidebar">
+    
+<h3>Examples</h3>
+<ul>
+    
+    
+    <li class="sidebar-item-selected-wrapper">
+        <div class="sidebar-item-selected">
+            <a href="/examples.html">Basic examples</a>
+        </div>
+    </li>
+    
+    
+    
+    <li>
+        <a href="/rpc-kv-storage.html">RPC key-value storage</a>
+    </li>
+    
+    
+    
+    <li>
+        <a href="/memcached-like-application.html">Memcached-like application</a>
+    </li>
+    
+    
+</ul>
+
+
+</div>
+<div class="pr-3 markdown-content docs-content">
+    <div class="status-wrapper">
+        <h1>ActiveJ RPC | Basic Examples </h1>
+    </div>
+    <ul>
+  <li><a href="#simple-rpc-example">Simple RPC Example</a> - basic example of a client-server RPC app</li>
+</ul>
+
+<p>Examples of utilizing and combining pre-defined RPC strategies:</p>
+<ul>
+  <li><a href="#round-robin-strategy">Round-Robin Strategy</a></li>
+  <li><a href="#round-robin-and-first-available-strategies-combined">Round-Robin and First Available Strategies Combined</a></li>
+  <li><a href="#sharding-and-first-valid-strategies-combined">Sharding and First Valid Strategies Combined</a></li>
+  <li><a href="#rendezvous-hashing-strategy">Rendezvous Hashing Strategy</a></li>
+  <li><a href="#type-dispatch-strategy">Type Dispatch Strategy</a></li>
+</ul>
+
+<div class="note-wrapper">
+    <div class="note">
+        <b>Note:</b>
+        To run the examples, you need to clone ActiveJ project from GitHub: 
+<br /> <b>$ git clone https://github.com/activej/activej</b> 
+<br /> And import it as a Maven project. Check out tag <b>v4.3</b>. Before running the example, build the project. 
+<br /> <b>Simple RPC Example</b> is located at <b>activej -&gt; examples -&gt; cloud -&gt; rpc</b>.
+<br /> RPC strategies examples are located at <b>activej -&gt; cloud-rpc -&gt; src -&gt; test -&gt; RpcStrategiesTest</b>.
+    </div>
+</div>
+
+<h3 id="simple-rpc-example">Simple RPC Example</h3>
+
+<p>In the “Hello World” client and server <strong>RPC Example</strong>, the client sends a request which contains the word <code class="language-plaintext highlighter-rouge">"World"</code> to server. When 
+server receives it, it sends a response that contains the word <code class="language-plaintext highlighter-rouge">"Hello "</code>. If everything completes successfully, we get the 
+following output:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Got result: Hello World</code></pre></figure>
+
+<p>Let’s take a look at the implementation:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">RpcExample</span> <span class="kd">extends</span> <span class="nc">Launcher</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">SERVICE_PORT</span> <span class="o">=</span> <span class="mi">34765</span><span class="o">;</span>
+
+	<span class="nd">@Inject</span>
+	<span class="kd">private</span> <span class="nc">RpcClient</span> <span class="n">client</span><span class="o">;</span>
+
+	<span class="nd">@Inject</span>
+	<span class="kd">private</span> <span class="nc">RpcServer</span> <span class="n">server</span><span class="o">;</span>
+
+	<span class="nd">@Inject</span>
+	<span class="kd">private</span> <span class="nc">Eventloop</span> <span class="n">eventloop</span><span class="o">;</span>
+
+	<span class="nd">@Provides</span>
+	<span class="nc">Eventloop</span> <span class="nf">eventloop</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="nc">Eventloop</span><span class="o">.</span><span class="na">create</span><span class="o">();</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Provides</span>
+	<span class="nc">RpcServer</span> <span class="nf">rpcServer</span><span class="o">(</span><span class="nc">Eventloop</span> <span class="n">eventloop</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="nc">RpcServer</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">eventloop</span><span class="o">)</span>
+				<span class="o">.</span><span class="na">withMessageTypes</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+				<span class="o">.</span><span class="na">withHandler</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">class</span><span class="o">,</span>
+						<span class="n">request</span> <span class="o">-&gt;</span> <span class="nc">Promise</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">"Hello "</span> <span class="o">+</span> <span class="n">request</span><span class="o">))</span>
+				<span class="o">.</span><span class="na">withListenPort</span><span class="o">(</span><span class="no">SERVICE_PORT</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Provides</span>
+	<span class="nc">RpcClient</span> <span class="nf">rpcClient</span><span class="o">(</span><span class="nc">Eventloop</span> <span class="n">eventloop</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="nc">RpcClient</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">eventloop</span><span class="o">)</span>
+				<span class="o">.</span><span class="na">withMessageTypes</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+				<span class="o">.</span><span class="na">withStrategy</span><span class="o">(</span><span class="n">server</span><span class="o">(</span><span class="k">new</span> <span class="nc">InetSocketAddress</span><span class="o">(</span><span class="no">SERVICE_PORT</span><span class="o">)));</span>
+	<span class="o">}</span>
+
+	<span class="nd">@ProvidesIntoSet</span>
+	<span class="nc">Initializer</span><span class="o">&lt;</span><span class="nc">ServiceGraphModuleSettings</span><span class="o">&gt;</span> <span class="nf">configureServiceGraph</span><span class="o">()</span> <span class="o">{</span>
+		<span class="c1">// add logical dependency so that service graph starts client only after it started the server</span>
+		<span class="k">return</span> <span class="n">settings</span> <span class="o">-&gt;</span> <span class="n">settings</span><span class="o">.</span><span class="na">addDependency</span><span class="o">(</span><span class="nc">Key</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="nc">RpcClient</span><span class="o">.</span><span class="na">class</span><span class="o">),</span> <span class="nc">Key</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="nc">RpcServer</span><span class="o">.</span><span class="na">class</span><span class="o">));</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">protected</span> <span class="nc">Module</span> <span class="nf">getModule</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="nc">ServiceGraphModule</span><span class="o">.</span><span class="na">create</span><span class="o">();</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">ExecutionException</span><span class="o">,</span> <span class="nc">InterruptedException</span> <span class="o">{</span>
+		<span class="nc">CompletableFuture</span><span class="o">&lt;</span><span class="nc">Object</span><span class="o">&gt;</span> <span class="n">future</span> <span class="o">=</span> <span class="n">eventloop</span><span class="o">.</span><span class="na">submit</span><span class="o">(()</span> <span class="o">-&gt;</span>
+				<span class="n">client</span><span class="o">.</span><span class="na">sendRequest</span><span class="o">(</span><span class="s">"World"</span><span class="o">,</span> <span class="mi">1000</span><span class="o">)</span>
+		<span class="o">);</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"%nRPC result: %s %n%n"</span><span class="o">,</span> <span class="n">future</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+		<span class="nc">RpcExample</span> <span class="n">example</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcExample</span><span class="o">();</span>
+		<span class="n">example</span><span class="o">.</span><span class="na">launch</span><span class="o">(</span><span class="n">args</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p><strong>RpcExample</strong> class extends <a href="https://activej.io/launcher.html">ActiveJ <strong>Launcher</strong></a> to help us manage application 
+lifecycle.</p>
+
+<p>Next, we use Dependency Injection library <a href="https://inject.activej.io">ActiveJ Inject</a> to provide <a href="https://github.com/activej/activej/blob/v4.3/cloud-rpc/src/main/java/io/activej/rpc/server/RpcServer.java"><strong>RpcServer</strong></a> 
+and <a href="https://github.com/activej/activej/blob/v4.3/cloud-rpc/src/main/java/io/activej/rpc/client/RpcClient.java"><strong>RpcClient</strong></a> 
+with relevant configurations and required dependencies. <strong>RpcClient</strong> sends requests with a String message to the 
+specified server according to the provided <a href="https://github.com/activej/activej/blob/v4.3/cloud-rpc/src/main/java/io/activej/rpc/client/sender/RpcStrategies.java"><strong>RPC strategy</strong></a> 
+(getting a single RPC-service). 
+For <strong>RpcServer</strong> we define the type of messages to proceed, a corresponding <a href="https://github.com/activej/activej/blob/v4.3/cloud-rpc/src/main/java/io/activej/rpc/server/RpcRequestHandler.java"><strong>RpcRequestHandler</strong></a> and a listener port.</p>
+
+<p>Since we extend <strong>Launcher</strong>, we will also override 2 methods: <em>getModule</em> to provide <a href="https://activej.io/service-graph.html"><strong>ServiceGraphModule</strong></a> 
+and <em>run</em> to describe the main logic of the example.</p>
+
+<p>Finally, we define the <em>main</em> method, which will launch our example.</p>
+
+<p>You can find example sources on <a href="https://github.com/activej/activej/blob/v4.3/examples/cloud/rpc/src/main/java/RpcExample.java">GitHub</a>.</p>
+
+<h3 id="round-robin-strategy">Round-Robin Strategy</h3>
+<p>ActiveJ RPC contains pre-defined strategies for requests arrangement between RPC servers or shards of servers. 
+<a href="https://github.com/activej/activej/blob/v4.3/cloud-rpc/src/main/java/io/activej/rpc/client/sender/RpcStrategyRoundRobin.java">Round-Robin</a> is one of the simplest of strategies: it just goes through the servers or shards in a cyclic way one by 
+one.</p>
+
+<p>In this example we create an RPC <em>pool</em> with 5 equal <em>connections</em> and set Round-Robin 
+strategy for them. Next, we create a sender for the pool with the previously defined strategy. That’s it, 100 
+requests will be equally distributed between the servers:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">roundRobinTest</span><span class="o">()</span> <span class="o">{</span>
+	<span class="nc">RpcClientConnectionPoolStub</span> <span class="n">pool</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcClientConnectionPoolStub</span><span class="o">();</span>
+	<span class="nc">RpcSenderStub</span> <span class="n">connection1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcSenderStub</span><span class="o">();</span>
+	<span class="nc">RpcSenderStub</span> <span class="n">connection2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcSenderStub</span><span class="o">();</span>
+	<span class="nc">RpcSenderStub</span> <span class="n">connection3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcSenderStub</span><span class="o">();</span>
+	<span class="nc">RpcSenderStub</span> <span class="n">connection4</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcSenderStub</span><span class="o">();</span>
+	<span class="nc">RpcSenderStub</span> <span class="n">connection5</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcSenderStub</span><span class="o">();</span>
+	<span class="n">pool</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">address1</span><span class="o">,</span> <span class="n">connection1</span><span class="o">);</span>
+	<span class="n">pool</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">address2</span><span class="o">,</span> <span class="n">connection2</span><span class="o">);</span>
+	<span class="n">pool</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">address3</span><span class="o">,</span> <span class="n">connection3</span><span class="o">);</span>
+	<span class="n">pool</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">address4</span><span class="o">,</span> <span class="n">connection4</span><span class="o">);</span>
+	<span class="n">pool</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">address5</span><span class="o">,</span> <span class="n">connection5</span><span class="o">);</span>
+	<span class="kt">int</span> <span class="n">iterations</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
+	<span class="nc">RpcStrategy</span> <span class="n">strategy</span> <span class="o">=</span> <span class="n">roundRobin</span><span class="o">(</span><span class="n">servers</span><span class="o">(</span><span class="n">address1</span><span class="o">,</span> <span class="n">address2</span><span class="o">,</span> <span class="n">address3</span><span class="o">,</span> <span class="n">address4</span><span class="o">,</span> <span class="n">address5</span><span class="o">));</span>
+
+	<span class="nc">RpcSender</span> <span class="n">sender</span> <span class="o">=</span> <span class="n">strategy</span><span class="o">.</span><span class="na">createSender</span><span class="o">(</span><span class="n">pool</span><span class="o">);</span>
+	<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">iterations</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+		<span class="n">sender</span><span class="o">.</span><span class="na">sendRequest</span><span class="o">(</span><span class="k">new</span> <span class="nc">Object</span><span class="o">(),</span> <span class="mi">50</span><span class="o">,</span> <span class="n">ignore</span><span class="o">());</span>
+	<span class="o">}</span>
+
+	<span class="nc">List</span><span class="o">&lt;</span><span class="nc">RpcSenderStub</span><span class="o">&gt;</span> <span class="n">connections</span> <span class="o">=</span>
+			<span class="n">asList</span><span class="o">(</span><span class="n">connection1</span><span class="o">,</span> <span class="n">connection2</span><span class="o">,</span> <span class="n">connection3</span><span class="o">,</span> <span class="n">connection4</span><span class="o">,</span> <span class="n">connection5</span><span class="o">);</span>
+	<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+		<span class="n">assertEquals</span><span class="o">(</span><span class="n">iterations</span> <span class="o">/</span> <span class="mi">5</span><span class="o">,</span> <span class="n">connections</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">getRequests</span><span class="o">());</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>You can find example sources on <a href="https://github.com/activej/activej/blob/v4.3/cloud-rpc/src/test/java/io/activej/rpc/client/sender/RpcStrategiesTest.java#L32">GitHub</a>.</p>
+
+<h3 id="round-robin-and-first-available-strategies-combined">Round-Robin and First Available Strategies Combined</h3>
+<p>You can simply combine RPC strategies. In this example we will combine <a href="https://github.com/activej/activej/blob/v4.3/cloud-rpc/src/main/java/io/activej/rpc/client/sender/RpcStrategyRoundRobin.java">Round Robin</a> 
+and <a href="https://github.com/activej/activej/blob/v4.3/cloud-rpc/src/main/java/io/activej/rpc/client/sender/RpcStrategyFirstAvailable.java">First Available</a> strategies. 
+First, we create 4 connections without putting <em>connection3</em> into the pool. Then we start sending 20 requests. 
+As a result, all the requests will be equally distributed between <em>connection1</em> (as it is always <em>first available</em>) and 
+<em>connection4</em> (as <em>connection3</em> isn’t available for the pool):</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">roundRobinAndFirstAvailableTest</span><span class="o">()</span> <span class="o">{</span>
+	<span class="nc">RpcClientConnectionPoolStub</span> <span class="n">pool</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcClientConnectionPoolStub</span><span class="o">();</span>
+	<span class="nc">RpcSenderStub</span> <span class="n">connection1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcSenderStub</span><span class="o">();</span>
+	<span class="nc">RpcSenderStub</span> <span class="n">connection2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcSenderStub</span><span class="o">();</span>
+	<span class="nc">RpcSenderStub</span> <span class="n">connection3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcSenderStub</span><span class="o">();</span>
+	<span class="nc">RpcSenderStub</span> <span class="n">connection4</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcSenderStub</span><span class="o">();</span>
+	<span class="n">pool</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">address1</span><span class="o">,</span> <span class="n">connection1</span><span class="o">);</span>
+	<span class="n">pool</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">address2</span><span class="o">,</span> <span class="n">connection2</span><span class="o">);</span>
+	<span class="c1">// we don't put connection3</span>
+	<span class="n">pool</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">address4</span><span class="o">,</span> <span class="n">connection4</span><span class="o">);</span>
+	<span class="kt">int</span> <span class="n">iterations</span> <span class="o">=</span> <span class="mi">20</span><span class="o">;</span>
+	<span class="nc">RpcStrategy</span> <span class="n">strategy</span> <span class="o">=</span> <span class="n">roundRobin</span><span class="o">(</span>
+			<span class="n">firstAvailable</span><span class="o">(</span><span class="n">servers</span><span class="o">(</span><span class="n">address1</span><span class="o">,</span> <span class="n">address2</span><span class="o">)),</span>
+			<span class="n">firstAvailable</span><span class="o">(</span><span class="n">servers</span><span class="o">(</span><span class="n">address3</span><span class="o">,</span> <span class="n">address4</span><span class="o">)));</span>
+
+	<span class="nc">RpcSender</span> <span class="n">sender</span> <span class="o">=</span> <span class="n">strategy</span><span class="o">.</span><span class="na">createSender</span><span class="o">(</span><span class="n">pool</span><span class="o">);</span>
+	<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">iterations</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+		<span class="n">sender</span><span class="o">.</span><span class="na">sendRequest</span><span class="o">(</span><span class="k">new</span> <span class="nc">Object</span><span class="o">(),</span> <span class="mi">50</span><span class="o">,</span> <span class="n">assertNoCalls</span><span class="o">());</span>
+	<span class="o">}</span>
+
+	<span class="n">assertEquals</span><span class="o">(</span><span class="n">iterations</span> <span class="o">/</span> <span class="mi">2</span><span class="o">,</span> <span class="n">connection1</span><span class="o">.</span><span class="na">getRequests</span><span class="o">());</span>
+	<span class="n">assertEquals</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">connection2</span><span class="o">.</span><span class="na">getRequests</span><span class="o">());</span>
+	<span class="n">assertEquals</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">connection3</span><span class="o">.</span><span class="na">getRequests</span><span class="o">());</span>
+	<span class="n">assertEquals</span><span class="o">(</span><span class="n">iterations</span> <span class="o">/</span> <span class="mi">2</span><span class="o">,</span> <span class="n">connection4</span><span class="o">.</span><span class="na">getRequests</span><span class="o">());</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>You can find example sources on <a href="https://github.com/activej/activej/blob/v4.3/cloud-rpc/src/test/java/io/activej/rpc/client/sender/RpcStrategiesTest.java#L62">GitHub</a>.</p>
+
+<h3 id="sharding-and-first-valid-strategies-combined">Sharding and First Valid Strategies Combined</h3>
+<p>You can also create your own sharding functions and combine them with other strategies if needed. In this example we 
+create 5 equal connections but don’t put <em>connection2</em> into the pool. Next, we provide a simple sharding function which 
+distributes requests between shards in accordance to the content of the request. 
+We split the connections into two shards, 
+and set <a href="https://github.com/activej/activej/blob/v4.3/cloud-rpc/src/main/java/io/activej/rpc/client/sender/RpcStrategyFirstValidResult.java">First Valid Result</a> 
+strategy for both of them. This strategy sends request to all available servers.
+Now, we manually send 7 requests:</p>
+<ul>
+  <li>4 with <code class="language-plaintext highlighter-rouge">0</code> message, so they’ll be sent to the first shard’s <em>connection1</em></li>
+  <li>3 with <code class="language-plaintext highlighter-rouge">1</code>, so they’ll all be sent to all three connections of the second shard</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">shardingAndFirstValidTest</span><span class="o">()</span> <span class="o">{</span>
+	<span class="nc">RpcClientConnectionPoolStub</span> <span class="n">pool</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcClientConnectionPoolStub</span><span class="o">();</span>
+	<span class="nc">RpcSenderStub</span> <span class="n">connection1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcSenderStub</span><span class="o">();</span>
+	<span class="nc">RpcSenderStub</span> <span class="n">connection2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcSenderStub</span><span class="o">();</span>
+	<span class="nc">RpcSenderStub</span> <span class="n">connection3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcSenderStub</span><span class="o">();</span>
+	<span class="nc">RpcSenderStub</span> <span class="n">connection4</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcSenderStub</span><span class="o">();</span>
+	<span class="nc">RpcSenderStub</span> <span class="n">connection5</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcSenderStub</span><span class="o">();</span>
+	<span class="n">pool</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">address1</span><span class="o">,</span> <span class="n">connection1</span><span class="o">);</span>
+	<span class="c1">// we don't put connection2</span>
+	<span class="n">pool</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">address3</span><span class="o">,</span> <span class="n">connection3</span><span class="o">);</span>
+	<span class="n">pool</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">address4</span><span class="o">,</span> <span class="n">connection4</span><span class="o">);</span>
+	<span class="n">pool</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">address5</span><span class="o">,</span> <span class="n">connection5</span><span class="o">);</span>
+	<span class="kt">int</span> <span class="n">shardsCount</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+	<span class="nc">ShardingFunction</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">shardingFunction</span> <span class="o">=</span> <span class="n">item</span> <span class="o">-&gt;</span> <span class="n">item</span> <span class="o">%</span> <span class="n">shardsCount</span><span class="o">;</span>
+	<span class="nc">RpcStrategy</span> <span class="n">strategy</span> <span class="o">=</span> <span class="n">sharding</span><span class="o">(</span><span class="n">shardingFunction</span><span class="o">,</span>
+			<span class="n">firstValidResult</span><span class="o">(</span><span class="n">servers</span><span class="o">(</span><span class="n">address1</span><span class="o">,</span> <span class="n">address2</span><span class="o">)),</span>
+			<span class="n">firstValidResult</span><span class="o">(</span><span class="n">servers</span><span class="o">(</span><span class="n">address3</span><span class="o">,</span> <span class="n">address4</span><span class="o">,</span> <span class="n">address5</span><span class="o">)));</span>
+
+	<span class="nc">RpcSender</span> <span class="n">sender</span> <span class="o">=</span> <span class="n">strategy</span><span class="o">.</span><span class="na">createSender</span><span class="o">(</span><span class="n">pool</span><span class="o">);</span>
+	<span class="n">sender</span><span class="o">.</span><span class="na">sendRequest</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">50</span><span class="o">,</span> <span class="n">assertNoCalls</span><span class="o">());</span>
+	<span class="n">sender</span><span class="o">.</span><span class="na">sendRequest</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">50</span><span class="o">,</span> <span class="n">assertNoCalls</span><span class="o">());</span>
+	<span class="n">sender</span><span class="o">.</span><span class="na">sendRequest</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">50</span><span class="o">,</span> <span class="n">assertNoCalls</span><span class="o">());</span>
+	<span class="n">sender</span><span class="o">.</span><span class="na">sendRequest</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">50</span><span class="o">,</span> <span class="n">assertNoCalls</span><span class="o">());</span>
+	<span class="n">sender</span><span class="o">.</span><span class="na">sendRequest</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">50</span><span class="o">,</span> <span class="n">assertNoCalls</span><span class="o">());</span>
+	<span class="n">sender</span><span class="o">.</span><span class="na">sendRequest</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">50</span><span class="o">,</span> <span class="n">assertNoCalls</span><span class="o">());</span>
+	<span class="n">sender</span><span class="o">.</span><span class="na">sendRequest</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">50</span><span class="o">,</span> <span class="n">assertNoCalls</span><span class="o">());</span>
+
+	<span class="n">assertEquals</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="n">connection1</span><span class="o">.</span><span class="na">getRequests</span><span class="o">());</span>
+	<span class="n">assertEquals</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">connection2</span><span class="o">.</span><span class="na">getRequests</span><span class="o">());</span>
+	<span class="n">assertEquals</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="n">connection3</span><span class="o">.</span><span class="na">getRequests</span><span class="o">());</span>
+	<span class="n">assertEquals</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="n">connection4</span><span class="o">.</span><span class="na">getRequests</span><span class="o">());</span>
+	<span class="n">assertEquals</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="n">connection5</span><span class="o">.</span><span class="na">getRequests</span><span class="o">());</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>You can find example sources on <a href="https://github.com/activej/activej/blob/v4.3/cloud-rpc/src/test/java/io/activej/rpc/client/sender/RpcStrategiesTest.java#L91">GitHub</a>.</p>
+
+<h3 id="rendezvous-hashing-strategy">Rendezvous Hashing Strategy</h3>
+<p>Rendezvous hashing strategy pre-calculates the hash function for the <a href="https://github.com/activej/activej/blob/v4.3/cloud-rpc/src/main/java/io/activej/rpc/client/sender/RpcSender.java"><strong>RpcSender</strong></a> 
+and creates a map of RPC servers. The map is stored in cache and will be re-calculated only if servers go online/offline.</p>
+
+<p>In this example requests will be equally distributed between <em>connection1</em>, <em>connection2</em>, and <em>connection3</em>:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">rendezvousHashingTest</span><span class="o">()</span> <span class="o">{</span>
+	<span class="nc">RpcClientConnectionPoolStub</span> <span class="n">pool</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcClientConnectionPoolStub</span><span class="o">();</span>
+	<span class="nc">RpcSenderStub</span> <span class="n">connection1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcSenderStub</span><span class="o">();</span>
+	<span class="nc">RpcSenderStub</span> <span class="n">connection2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcSenderStub</span><span class="o">();</span>
+	<span class="nc">RpcSenderStub</span> <span class="n">connection3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcSenderStub</span><span class="o">();</span>
+	<span class="nc">RpcSenderStub</span> <span class="n">connection4</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcSenderStub</span><span class="o">();</span>
+	<span class="nc">RpcSenderStub</span> <span class="n">connection5</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcSenderStub</span><span class="o">();</span>
+	<span class="nc">HashFunction</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">hashFunction</span> <span class="o">=</span> <span class="n">item</span> <span class="o">-&gt;</span> <span class="n">item</span><span class="o">;</span>
+	<span class="nc">RpcStrategy</span> <span class="n">strategy</span> <span class="o">=</span> <span class="n">rendezvousHashing</span><span class="o">(</span><span class="n">hashFunction</span><span class="o">)</span>
+			<span class="o">.</span><span class="na">withShard</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">firstAvailable</span><span class="o">(</span><span class="n">servers</span><span class="o">(</span><span class="n">address1</span><span class="o">,</span> <span class="n">address2</span><span class="o">)))</span>
+			<span class="o">.</span><span class="na">withShard</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">firstAvailable</span><span class="o">(</span><span class="n">servers</span><span class="o">(</span><span class="n">address3</span><span class="o">,</span> <span class="n">address4</span><span class="o">)))</span>
+			<span class="o">.</span><span class="na">withShard</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="n">server</span><span class="o">(</span><span class="n">address5</span><span class="o">));</span>
+	<span class="kt">int</span> <span class="n">iterationsPerLoop</span> <span class="o">=</span> <span class="mi">1000</span><span class="o">;</span>
+	<span class="nc">RpcSender</span> <span class="n">sender</span><span class="o">;</span>
+
+	<span class="n">pool</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">address1</span><span class="o">,</span> <span class="n">connection1</span><span class="o">);</span>
+	<span class="n">pool</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">address2</span><span class="o">,</span> <span class="n">connection2</span><span class="o">);</span>
+	<span class="n">pool</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">address3</span><span class="o">,</span> <span class="n">connection3</span><span class="o">);</span>
+	<span class="n">pool</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">address4</span><span class="o">,</span> <span class="n">connection4</span><span class="o">);</span>
+	<span class="n">pool</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">address5</span><span class="o">,</span> <span class="n">connection5</span><span class="o">);</span>
+	<span class="n">sender</span> <span class="o">=</span> <span class="n">strategy</span><span class="o">.</span><span class="na">createSender</span><span class="o">(</span><span class="n">pool</span><span class="o">);</span>
+	<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">iterationsPerLoop</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+		<span class="n">sender</span><span class="o">.</span><span class="na">sendRequest</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="mi">50</span><span class="o">,</span> <span class="n">ignore</span><span class="o">());</span>
+	<span class="o">}</span></code></pre></figure>
+
+<p>When we remove some of the connections from the pool, hash function is recalculated:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java">	<span class="n">pool</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">address3</span><span class="o">);</span>
+	<span class="n">pool</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">address4</span><span class="o">);</span>
+	<span class="n">sender</span> <span class="o">=</span> <span class="n">strategy</span><span class="o">.</span><span class="na">createSender</span><span class="o">(</span><span class="n">pool</span><span class="o">);</span>
+	<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">iterationsPerLoop</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+		<span class="n">sender</span><span class="o">.</span><span class="na">sendRequest</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="mi">50</span><span class="o">,</span> <span class="n">ignore</span><span class="o">());</span>
+	<span class="o">}</span>
+
+	<span class="kt">double</span> <span class="n">acceptableError</span> <span class="o">=</span> <span class="n">iterationsPerLoop</span> <span class="o">/</span> <span class="mf">10.0</span><span class="o">;</span>
+	<span class="n">assertEquals</span><span class="o">(</span><span class="n">iterationsPerLoop</span> <span class="o">/</span> <span class="mf">3.0</span> <span class="o">+</span> <span class="n">iterationsPerLoop</span> <span class="o">/</span> <span class="mf">2.0</span><span class="o">,</span> <span class="n">connection1</span><span class="o">.</span><span class="na">getRequests</span><span class="o">(),</span> <span class="n">acceptableError</span><span class="o">);</span>
+	<span class="n">assertEquals</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">connection2</span><span class="o">.</span><span class="na">getRequests</span><span class="o">());</span>
+	<span class="n">assertEquals</span><span class="o">(</span><span class="n">iterationsPerLoop</span> <span class="o">/</span> <span class="mf">3.0</span><span class="o">,</span> <span class="n">connection3</span><span class="o">.</span><span class="na">getRequests</span><span class="o">(),</span> <span class="n">acceptableError</span><span class="o">);</span>
+	<span class="n">assertEquals</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">connection4</span><span class="o">.</span><span class="na">getRequests</span><span class="o">());</span>
+	<span class="n">assertEquals</span><span class="o">(</span><span class="n">iterationsPerLoop</span> <span class="o">/</span> <span class="mf">3.0</span> <span class="o">+</span> <span class="n">iterationsPerLoop</span> <span class="o">/</span> <span class="mf">2.0</span><span class="o">,</span> <span class="n">connection5</span><span class="o">.</span><span class="na">getRequests</span><span class="o">(),</span> <span class="n">acceptableError</span><span class="o">);</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>You can find example sources on <a href="https://github.com/activej/activej/blob/v4.3/cloud-rpc/src/test/java/io/activej/rpc/client/sender/RpcStrategiesTest.java#L128">GitHub</a>.</p>
+
+<h3 id="type-dispatch-strategy">Type Dispatch Strategy</h3>
+<p>This strategy simply distributes requests among shards in accordance to the type of the request. In the example 
+all <strong>String</strong> requests are sent on the first shard which has <em>First Valid Result</em> strategy for the servers. Requests 
+with all other types are sent to the second shard with <em>First Available</em> strategy. As a result, <em>connection1</em> and 
+<em>connection2</em> will process 35 requests, <em>connection3</em> - 25 requests, while <em>connection4</em> and <em>connection5</em> - 0 requests 
+as <em>connection3</em> was always <em>First Available</em>:</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">typeDispatchTest</span><span class="o">()</span> <span class="o">{</span>
+	<span class="nc">RpcClientConnectionPoolStub</span> <span class="n">pool</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcClientConnectionPoolStub</span><span class="o">();</span>
+	<span class="nc">RpcSenderStub</span> <span class="n">connection1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcSenderStub</span><span class="o">();</span>
+	<span class="nc">RpcSenderStub</span> <span class="n">connection2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcSenderStub</span><span class="o">();</span>
+	<span class="nc">RpcSenderStub</span> <span class="n">connection3</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcSenderStub</span><span class="o">();</span>
+	<span class="nc">RpcSenderStub</span> <span class="n">connection4</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcSenderStub</span><span class="o">();</span>
+	<span class="nc">RpcSenderStub</span> <span class="n">connection5</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RpcSenderStub</span><span class="o">();</span>
+	<span class="n">pool</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">address1</span><span class="o">,</span> <span class="n">connection1</span><span class="o">);</span>
+	<span class="n">pool</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">address2</span><span class="o">,</span> <span class="n">connection2</span><span class="o">);</span>
+	<span class="n">pool</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">address3</span><span class="o">,</span> <span class="n">connection3</span><span class="o">);</span>
+	<span class="n">pool</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">address4</span><span class="o">,</span> <span class="n">connection4</span><span class="o">);</span>
+	<span class="n">pool</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">address5</span><span class="o">,</span> <span class="n">connection5</span><span class="o">);</span>
+	<span class="kt">int</span> <span class="n">timeout</span> <span class="o">=</span> <span class="mi">50</span><span class="o">;</span>
+	<span class="kt">int</span> <span class="n">iterationsPerDataStub</span> <span class="o">=</span> <span class="mi">25</span><span class="o">;</span>
+	<span class="kt">int</span> <span class="n">iterationsPerDataStubWithKey</span> <span class="o">=</span> <span class="mi">35</span><span class="o">;</span>
+	<span class="nc">RpcSender</span> <span class="n">sender</span><span class="o">;</span>
+	<span class="nc">RpcStrategy</span> <span class="n">strategy</span> <span class="o">=</span> <span class="n">typeDispatching</span><span class="o">()</span>
+			<span class="o">.</span><span class="na">on</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">class</span><span class="o">,</span>
+					<span class="n">firstValidResult</span><span class="o">(</span><span class="n">servers</span><span class="o">(</span><span class="n">address1</span><span class="o">,</span> <span class="n">address2</span><span class="o">)))</span>
+			<span class="o">.</span><span class="na">onDefault</span><span class="o">(</span>
+					<span class="n">firstAvailable</span><span class="o">(</span><span class="n">servers</span><span class="o">(</span><span class="n">address3</span><span class="o">,</span> <span class="n">address4</span><span class="o">,</span> <span class="n">address5</span><span class="o">)));</span>
+
+	<span class="n">sender</span> <span class="o">=</span> <span class="n">strategy</span><span class="o">.</span><span class="na">createSender</span><span class="o">(</span><span class="n">pool</span><span class="o">);</span>
+	<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">iterationsPerDataStub</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+		<span class="n">sender</span><span class="o">.</span><span class="na">sendRequest</span><span class="o">(</span><span class="k">new</span> <span class="nc">Object</span><span class="o">(),</span> <span class="n">timeout</span><span class="o">,</span> <span class="n">assertNoCalls</span><span class="o">());</span>
+	<span class="o">}</span>
+	<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">iterationsPerDataStubWithKey</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+		<span class="n">sender</span><span class="o">.</span><span class="na">sendRequest</span><span class="o">(</span><span class="s">"request"</span><span class="o">,</span> <span class="n">timeout</span><span class="o">,</span> <span class="n">assertNoCalls</span><span class="o">());</span>
+	<span class="o">}</span>
+
+	<span class="n">assertEquals</span><span class="o">(</span><span class="n">iterationsPerDataStubWithKey</span><span class="o">,</span> <span class="n">connection1</span><span class="o">.</span><span class="na">getRequests</span><span class="o">());</span>
+	<span class="n">assertEquals</span><span class="o">(</span><span class="n">iterationsPerDataStubWithKey</span><span class="o">,</span> <span class="n">connection2</span><span class="o">.</span><span class="na">getRequests</span><span class="o">());</span>
+	<span class="n">assertEquals</span><span class="o">(</span><span class="n">iterationsPerDataStub</span><span class="o">,</span> <span class="n">connection3</span><span class="o">.</span><span class="na">getRequests</span><span class="o">());</span>
+	<span class="n">assertEquals</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">connection4</span><span class="o">.</span><span class="na">getRequests</span><span class="o">());</span>
+	<span class="n">assertEquals</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">connection5</span><span class="o">.</span><span class="na">getRequests</span><span class="o">());</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>You can find example sources on <a href="https://github.com/activej/activej/blob/v4.3/cloud-rpc/src/test/java/io/activej/rpc/client/sender/RpcStrategiesTest.java#L172">GitHub</a>.</p>
+
+    <div class="row docs-prevnext">
+        
+            <div class="col-sm-6"></div>
+        
+        
+            <div class="col-sm-6">
+                <a class="docs-prevnext__button pull-right" href="rpc-kv-storage.html">Next</a>
+            </div>
+        
+    </div>
+</div>
+
+
+                </div>
+            </div>
+        
+        <div class="container justify-content-between footer">
+            <div class="col-md-4 col-lg-5"> &copy; 2021 ActiveJ LLC. All Rights Reserved</div>
+            <div class="col-md-4 col-lg-3">Contact us: contact@activej.io</div>
+            <div class="col-md-8 col-lg-4 footer__menu">
+                <a href="http://uikernel.io">UIKernel</a>
+                <a href="https://adkernel.com">AdKernel</a>
+                <a href="https://github.com/activej/activej">GitHub</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="../static/js/leon.js"></script>
+    <script src="../static/js/index.js"></script>
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous">
+    </script>
+</body>
+</html>
